@@ -70,48 +70,73 @@ const AdminPage = () => {
   );
 
   return (
-    <div>
-      <h2>Admin Page</h2>
-      <form>
-        <input
-          type="text"
-          placeholder="Enter guest name"
-          value={guestName}
-          onChange={(e) => setGuestName(e.target.value)}
-        />
-        <button type="button" onClick={generateLink}>
-          Generate Link
-        </button>
-      </form>
-
-      <h3>Guest List</h3>
-      <input
-        type="text"
-        placeholder="Search guest"
-        value={searchQuery}
-        onChange={handleSearch}
-      />
-      <table>
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Link</th>
-            <th>Action</th>
-          </tr>
-        </thead>
-        <tbody>
-          {filteredGuests.map((guest, index) => (
-            <tr key={index}>
-              <td>{guest.name}</td>
-              <td>{`${window.location.origin}/invite/${guest.id}`}</td>
-              <td>
-                <button onClick={() => copyLink(guest.id)}>Copy Link</button>
-                <button onClick={() => deleteGuest(guest.id)}>Delete</button>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+    <div className="container">
+      <div className="card shadow mt-5">
+        <div className="card-body">
+          <h3>Admin Page</h3>
+          <form className="mb-4">
+            <input
+              type="text"
+              className="form-control mr-2"
+              placeholder="Enter guest name"
+              value={guestName}
+              onChange={(e) => setGuestName(e.target.value)}
+            />
+            <button
+              type="button"
+              className="btn btn-primary mt-3"
+              onClick={generateLink}
+            >
+              Generate Link
+            </button>
+          </form>
+        </div>
+      </div>
+      <div className="card mt-4">
+        <div className="card-body">
+          <div className="d-flex justify-content-between">
+            <h3 className="w-50">Guest List</h3>
+            <input
+              type="text"
+              className="form-control mb-4 w-25"
+              placeholder="Search guest"
+              value={searchQuery}
+              onChange={handleSearch}
+            />
+          </div>
+          <table className="table">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Link</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              {filteredGuests.map((guest, index) => (
+                <tr key={index}>
+                  <td>{guest.name}</td>
+                  <td>{`${window.location.origin}/invite/${guest.id}`}</td>
+                  <td>
+                    <button
+                      className="btn btn-success"
+                      onClick={() => copyLink(guest.id)}
+                    >
+                      Copy Link
+                    </button>
+                    <button
+                      className="btn btn-danger mx-3"
+                      onClick={() => deleteGuest(guest.id)}
+                    >
+                      Delete
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
   );
 };
