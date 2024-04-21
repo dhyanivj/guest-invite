@@ -89,7 +89,7 @@ const AdminPage = () => {
             />
             <button
               type="button"
-              className="btn btn-primary mt-3"
+              className="btn btn-primary mt-3 rounded-pill"
               onClick={generateLink}
             >
               Generate Link
@@ -120,7 +120,7 @@ const AdminPage = () => {
               {filteredGuests.map((guest, index) => (
                 <tr key={index}>
                   <td>{guest.name}</td>
-                  <td>
+                  <td className="action-icons">
                     <button
                       className="btn btn-success"
                       onClick={() => copyLink(guest.id)}

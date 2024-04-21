@@ -1,12 +1,7 @@
 import React from "react";
 
 const NotFoundPage = () => {
-  return (
-    <div>
-      NotFoundPage okay!!
-      <button className="btn btn-primary">Click me</button>
-    </div>
-  );
+  return <div>PAGE NOT FOUND!!</div>;
 };
 
 export default NotFoundPage;
