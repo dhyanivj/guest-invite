@@ -1,0 +1,17 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.guest-page{
+    background: red;
+    position: relative;
+    > video{
+        height: 100vh;
+    }
+    h2{
+        position: absolute;
+        bottom: 16rem;
+        left: 3rem;
+        color: #ffc26e;
+    }
+}

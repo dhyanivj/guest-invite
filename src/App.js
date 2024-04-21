@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import AdminPage from "./AdminPage";
 import GuestPage from "./GuestPage";
 import NotFoundPage from "./NotFoundPage";
+import "./App.scss";
 
 function App() {
   return (

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { db } from "./firebase";
+import Wedbg from "./assets/wed-bg.mp4";
 
 const GuestPage = () => {
   const { uuid } = useParams();
@@ -35,8 +36,13 @@ const GuestPage = () => {
 
   return (
     <div>
-      <h2>Guest Page</h2>
-      {guestName ? <p>Dear {guestName}, you are invited.</p> : null}
+      {/* <h2>Guest Page</h2> */}
+      {/* {guestName ? <p>Dear {guestName}, you are invited.</p> : null} */}
+
+      <div className="guest-page">
+        <video src={Wedbg} autoPlay muted={true}></video>
+        <h2>Dear {guestName}</h2>
+      </div>
     </div>
   );
 };
