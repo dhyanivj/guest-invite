@@ -50,6 +50,11 @@ const AdminPage = () => {
     alert("Link copied to clipboard!");
   };
 
+  const shareViaWhatsApp = (name, id) => {
+    const message = `Dear ${name}, you are invited. Here is your invitation card: ${window.location.origin}/invite/${id}`;
+    window.open(`https://wa.me/?text=${encodeURIComponent(message)}`, "_blank");
+  };
+
   const deleteGuest = async (id) => {
     try {
       await db.collection("invitations").doc(id).delete();
@@ -98,7 +103,7 @@ const AdminPage = () => {
             <h3 className="w-50">Guest List</h3>
             <input
               type="text"
-              className="form-control mb-4 w-25"
+              className="form-control mb-4"
               placeholder="Search guest"
               value={searchQuery}
               onChange={handleSearch}
@@ -108,7 +113,6 @@ const AdminPage = () => {
             <thead>
               <tr>
                 <th>Name</th>
-                {/* <th>Link</th> */}
                 <th>Action</th>
               </tr>
             </thead>
@@ -116,19 +120,24 @@ const AdminPage = () => {
               {filteredGuests.map((guest, index) => (
                 <tr key={index}>
                   <td>{guest.name}</td>
-                  {/* <td>{`${window.location.origin}/invite/${guest.id}`}</td> */}
                   <td>
                     <button
                       className="btn btn-success"
                       onClick={() => copyLink(guest.id)}
                     >
-                      Copy Link
+                      <i class="fa fa-copy"></i>
                     </button>
                     <button
-                      className="btn btn-danger mx-3"
+                      className="btn btn-info mx-3"
+                      onClick={() => shareViaWhatsApp(guest.name, guest.id)}
+                    >
+                      <i class="fa fa-whatsapp"></i>
+                    </button>
+                    <button
+                      className="btn btn-danger"
                       onClick={() => deleteGuest(guest.id)}
                     >
-                      Delete
+                      <i class="fa fa-trash-o"></i>
                     </button>
                   </td>
                 </tr>
