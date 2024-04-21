@@ -6,7 +6,8 @@
     background: red;
     position: relative;
     > video{
-        height: 100vh;
+        height: 100%;
+        width: 100%;
     }
     h2{
         position: absolute;
