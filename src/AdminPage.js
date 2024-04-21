@@ -108,7 +108,7 @@ const AdminPage = () => {
             <thead>
               <tr>
                 <th>Name</th>
-                <th>Link</th>
+                {/* <th>Link</th> */}
                 <th>Action</th>
               </tr>
             </thead>
@@ -116,7 +116,7 @@ const AdminPage = () => {
               {filteredGuests.map((guest, index) => (
                 <tr key={index}>
                   <td>{guest.name}</td>
-                  <td>{`${window.location.origin}/invite/${guest.id}`}</td>
+                  {/* <td>{`${window.location.origin}/invite/${guest.id}`}</td> */}
                   <td>
                     <button
                       className="btn btn-success"
